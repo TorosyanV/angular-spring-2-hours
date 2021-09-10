@@ -16,4 +16,16 @@ public class SecurityContext {
         final String errorMsg = "No user has been authenticated on this request";
         throw new IllegalStateException(errorMsg);
     }
+
+//    public static SecurityUserWrapper logout() {
+//        final Authentication authentication = SecurityContextHolder.getContext().c();
+//        if (authentication != null) {
+//            Object principal = authentication.getPrincipal();
+//            if (principal instanceof SecurityUserWrapper)
+//                return (SecurityUserWrapper) principal;
+//        }
+//
+//        final String errorMsg = "No user has been authenticated on this request";
+//        throw new IllegalStateException(errorMsg);
+//    }
 }

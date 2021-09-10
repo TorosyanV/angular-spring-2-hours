@@ -1,31 +1,11 @@
 <h4>Available notes</h4>
 
-<ul class="notes-list">
-    <li>
-        <p class="note-summary">This is a note</p>
-        <p class="note-timedate"><i>12/11/39</i></p>
-    </li>
-    <li>
-        <p class="note-summary">This is a note</p>
-        <p class="note-timedate"><i>12/11/39</i></p>
-    </li>
-    <li>
-        <p class="note-summary">This is a note</p>
-        <p class="note-timedate"><i>12/11/39</i></p>
-    </li>
-    <li>
-        <p class="note-summary">This is a note</p>
-        <p class="note-timedate"><i>12/11/39</i></p>
-    </li>
-    <li>
-        <p class="note-summary">This is a note</p>
-        <p class="note-timedate"><i>12/11/39</i></p>
-    </li>
-    <li>
-        <p class="note-summary">This is a note</p>
-        <p class="note-timedate"><i>12/11/39</i></p>
+<ul class="notes-list" >
+    <li ng-repeat="note in notes" ng-click="viewNote(note)">
+        <p class="note-summary">{{note.name}}</p>
+        <p class="note-timedate"><i>{{note.createdDate}}</i></p>
     </li>
 </ul>
-<md-button style="float:right" ng-click="newNoteView()">
+<md-button style="float:right" ng-click="newNoteView()" class="md-raised md-primary">
     New Note
 </md-button>

@@ -1,21 +1,25 @@
-<h1>Login</h1>
 
-<form>
-    <md-input-container>
-        <label>Username</label>
-        <input type="text" ng-model="login.username" required>
-    </md-input-container>
+<div>
+    <h1>Login</h1>
 
-    <md-input-container>
-        <label>Password</label>
-        <input type="text" ng-model="login.password" required>
-    </md-input-container>
+    <form name="loginForm" layout="column" layout-align="center center">
+        <md-input-container>
+            <label>Username</label>
+            <input type="text" ng-model="login.username" required>
+        </md-input-container>
 
-    <p style="color:red" ng-show="invalidCreds">Invalid credentials</p>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="login.password" required>
+        </md-input-container>
 
-    <div class="action-buttons">
-        <md-button ng-click="login()">
-            Login
-        </md-button>
-    </div>
-</form>
+        <p style="color:red" ng-show="invalidCreds">Invalid credentials</p>
+
+        <div class="action-buttons">
+            <md-button class="md-raised md-primary" ng-disabled="!loginForm.$valid" ng-click="login()">
+                Login
+            </md-button>
+        </div>
+    </form>
+</div>
+

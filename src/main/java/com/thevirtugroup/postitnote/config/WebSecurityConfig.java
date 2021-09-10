@@ -1,6 +1,5 @@
 package com.thevirtugroup.postitnote.config;
 
-import com.thevirtugroup.postitnote.repository.UserRepository;
 import com.thevirtugroup.postitnote.security.CustomAuthenticationSuccessHandler;
 import com.thevirtugroup.postitnote.security.JsonAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -31,7 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .anyRequest().permitAll()
                 .and()
-                .logout()
+                .logout().logoutUrl("/api/logout")
+                .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler())
+                .deleteCookies("JSESSIONID")
+                .invalidateHttpSession(true).logoutSuccessUrl("/login")
                 .and()
                 .csrf().disable()
                 .httpBasic()

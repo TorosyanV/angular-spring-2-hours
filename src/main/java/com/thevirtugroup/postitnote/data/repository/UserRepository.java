@@ -1,4 +1,4 @@
-package com.thevirtugroup.postitnote.repository;
+package com.thevirtugroup.postitnote.data.repository;
 
 
 import com.thevirtugroup.postitnote.model.User;

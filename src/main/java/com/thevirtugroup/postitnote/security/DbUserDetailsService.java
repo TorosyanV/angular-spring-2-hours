@@ -1,6 +1,6 @@
 package com.thevirtugroup.postitnote.security;
 
-import com.thevirtugroup.postitnote.repository.UserRepository;
+import com.thevirtugroup.postitnote.data.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
